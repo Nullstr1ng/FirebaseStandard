@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>FirebaseDatabase.net</PackageId>
+    <PackageVersion>4.0.1</PackageVersion>
+    <Authors>Step Up Labs, Inc.</Authors>
+    <Description>Complex C# library for Firebase Realtime Database built on top of Firebase REST API. Among others it supports following:
+
+      * Offline storage
+      * Querying using available filters
+      * Passing in authentication token
+      * Streaming online changes
+      * Directly Posting / Putting / Patching online data
+
+      Streaming changes (both online and offline) are done using Reactive Extensions.
+    </Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>https://github.com/step-up-labs/firebase-database-dotnet/raw/master/art/FirebaseLogo.128x128.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/step-up-labs/firebase-database-dotnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/step-up-labs/firebase-database-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <IncludeSource>True</IncludeSource>
+    <IncludeSymbols>True</IncludeSymbols>
+    <Copyright>Step Up Labs, Inc. 2017</Copyright>
+    <PackageTags>Firebase Database Realtime</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="4.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Reactive" Version="4.0.0" />
+  </ItemGroup>
+
+</Project>
