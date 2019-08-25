@@ -4,8 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HelloFirebaseXamarin.App">
+             x:Class="HelloFirebaseXamarin.App"
+             xmlns:vm="clr-namespace:HelloFirebaseLibrary.ViewModel;assembly=HelloFirebaseLibrary"
+             >
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

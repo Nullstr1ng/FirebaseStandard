@@ -1,8 +1,5 @@
-﻿using System;
+﻿using HelloFirebaseXamarin.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using HelloFirebaseXamarin.Services;
-using HelloFirebaseXamarin.Views;
 
 namespace HelloFirebaseXamarin
 {
@@ -13,8 +10,7 @@ namespace HelloFirebaseXamarin
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new Page_SignIn();
         }
 
         protected override void OnStart()

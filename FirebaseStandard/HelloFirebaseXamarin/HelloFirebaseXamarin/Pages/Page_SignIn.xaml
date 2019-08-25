@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloFirebaseXamarin.Pages.Page_SignIn"
+             BindingContext="{Binding Source={StaticResource Locator}}"
+             >
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="GridSignIn" IsVisible="{Binding SignIn.ShowSignInView}">
+                <StackLayout HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center">
+                    <Entry Placeholder="Email" Text="{Binding SignIn.Email}" />
+                    <Entry Placeholder="Passowrd" Text="{Binding SignIn.Password}" Margin="0,10,0,0" />
+                    <Button Text="Sign-In" HorizontalOptions="End" Margin="0,10,0,0" Command="{Binding SignIn.Command_SignIn}" />
+                    <Label Text="Sign-up if you do not have an account" TextDecorations="Underline" HorizontalOptions="End" Margin="0,10,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignIn.Command_SignUp}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <Grid x:Name="GridSignUp"  IsVisible="{Binding SignIn.ShowSignUpView}">
+                <StackLayout HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center">
+                    <Entry Placeholder="Email" Text="{Binding SignUp.Email}" />
+                    <Entry Placeholder="Password" Margin="0,10,0,0" Text="{Binding SignUp.Password}" IsPassword="True" />
+                    <Entry Placeholder="Display Name" Margin="0,10,0,0" Text="{Binding SignUp.DisplayName}" />
+                    <Button Text="Sign Up" HorizontalOptions="End" Margin="0,10,0,0" Command="{Binding SignUp.Command_SignUp}" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
