@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloFirebaseXamarin.Pages.Page_SignIn"
+             BindingContext="{Binding Source={StaticResource Locator}}"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="GridSignIn" IsVisible="{Binding SignIn.ShowSignInView}" >
+                <StackLayout Margin="20,0" VerticalOptions="Center">
+                    <Entry Placeholder="Email" Text="{Binding SignIn.Email}" />
+                    <Entry Placeholder="Passowrd" Text="{Binding SignIn.Password}" Margin="0,10,0,0" />
+                    <Button Text="Sign-In" HorizontalOptions="End" Margin="0,10,0,0" Command="{Binding SignIn.Command_SignIn}" />
+                    <Label Text="Sign-up if you do not have an account" TextDecorations="Underline" HorizontalOptions="End" Margin="0,20,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignIn.Command_SignUp}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <Grid x:Name="GridSignUp" IsVisible="{Binding SignIn.ShowSignUpView}">
+                <StackLayout Margin="20,0" VerticalOptions="Center">
+                    <Entry Placeholder="Email" Text="{Binding SignUp.Email}" />
+                    <Entry Placeholder="Password" Margin="0,10,0,0" Text="{Binding SignUp.Password}" />
+                    <Entry Placeholder="Display Name" Margin="0,10,0,0" Text="{Binding SignUp.DisplayName}" />
+                    <Button Text="Sign Up" HorizontalOptions="End" Margin="0,10,0,0" Command="{Binding SignUp.Command_SignUp}"/>
+                    <Label Text="Sign-in instead?" HorizontalOptions="End" TextDecorations="Underline" Margin="0,20,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignIn.Command_Cancel}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <ActivityIndicator IsRunning="True" IsVisible="{Binding SignUp.IsBusy}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

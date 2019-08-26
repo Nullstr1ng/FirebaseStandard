@@ -1,12 +1,50 @@
-﻿<Window x:Class="HelloFirebaseWPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HelloFirebaseWPF"
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+    x:Class="HelloFirebaseWPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource Locator}}"
+        >
     <Grid>
-        
+        <Grid x:Name="GridSignIn" Visibility="{Binding SignIn.ShowSignInView, Converter={StaticResource BooleanToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" Width="300" VerticalAlignment="Center">
+                <TextBlock Text="Email" />
+                <TextBox Text="{Binding SignIn.Email, Mode=TwoWay}" />
+                <TextBlock Text="Password" Margin="0,10,0,0"/>
+                <TextBox Text="{Binding SignIn.Password, Mode=TwoWay}" />
+                <Button Content="Sign-In" HorizontalAlignment="Right" Margin="0,10,0,0" Command="{Binding SignIn.Command_SignIn}" />
+                <TextBlock Text="Sign-up if you do not have an account" TextDecorations="Underline" HorizontalAlignment="Right" Margin="0,10,0,0" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <Custom:EventToCommand Command="{Binding SignIn.Command_SignUp}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="GridSignUp" Visibility="{Binding SignIn.ShowSignUpView, Converter={StaticResource BooleanToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" Width="300" VerticalAlignment="Center">
+                <TextBlock Text="Email" />
+                <TextBox Text="{Binding SignUp.Email, Mode=TwoWay}" />
+                <TextBlock Text="Password" Margin="0,10,0,0"/>
+                <TextBox Text="{Binding SignUp.Password, Mode=TwoWay}" />
+                <TextBlock Text="Display Name" Margin="0,10,0,0"/>
+                <TextBox Text="{Binding SignUp.DisplayName, Mode=TwoWay}" />
+                <Button Content="Sign Up" HorizontalAlignment="Right" Margin="0,10,0,0" Command="{Binding SignUp.Command_SignUp}" />
+                <TextBlock Text="Sign-in instead?" HorizontalAlignment="Right" Margin="0,10,0,0" TextDecorations="Underline">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <Custom:EventToCommand Command="{Binding SignIn.Command_Cancel}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

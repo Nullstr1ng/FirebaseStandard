@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HelloFirebaseLibrary.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HelloFirebaseWPF
 {
@@ -23,6 +11,30 @@ namespace HelloFirebaseWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            ((ViewModelLocator)this.DataContext).SignUp.OnRegistrationStatus += (s, rr) =>
+            {
+                if ((bool)rr.Result)
+                {
+                    MessageBox.Show("Successfully registered!", "Registration Status");
+                }
+                else
+                {
+                    MessageBox.Show($"Failed! Message \"{rr.Message}\"", "Registration Status");
+                }
+            };
+
+            ((ViewModelLocator)this.DataContext).SignIn.OnSignInResult += (s, rr) =>
+            {
+                if ((bool)rr.Result)
+                {
+                    MessageBox.Show("Signed-in!", "Sign-in Status");
+                }
+                else
+                {
+                    MessageBox.Show($"Failed! Message \"{rr.Message}\"", "Sign-in Status");
+                }
+            };
         }
     }
 }

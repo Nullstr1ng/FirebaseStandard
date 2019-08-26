@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFirebaseStandard", "Tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{D1D9F516-05B0-4245-AFDE-7A4520D40F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseLibrary", "HelloFirebaseLibrary\HelloFirebaseLibrary.csproj", "{564F089E-BC9F-453B-996B-D4B5BA069FFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloFirebaseLibrary", "HelloFirebaseLibrary\HelloFirebaseLibrary.csproj", "{564F089E-BC9F-453B-996B-D4B5BA069FFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseXamarin.Android", "HelloFirebaseXamarin\HelloFirebaseXamarin.Android\HelloFirebaseXamarin.Android.csproj", "{8752CDE0-C43F-4038-B003-0FBDEC8EE283}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseXamarin.iOS", "HelloFirebaseXamarin\HelloFirebaseXamarin.iOS\HelloFirebaseXamarin.iOS.csproj", "{2A2BDBF1-0442-4097-A8DC-4E5D935F6001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseXamarin", "HelloFirebaseXamarin\HelloFirebaseXamarin\HelloFirebaseXamarin.csproj", "{0E2834D5-DCD4-4242-91E1-C82F9D2D7C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloFirebaseXamarin", "HelloFirebaseXamarin\HelloFirebaseXamarin\HelloFirebaseXamarin.csproj", "{0E2834D5-DCD4-4242-91E1-C82F9D2D7C41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseUWP", "HelloFirebaseUWP\HelloFirebaseUWP.csproj", "{213DAAD3-11D3-4E35-B25D-4F8390022EBF}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFirebaseWPF", "HelloFirebaseWPF\HelloFirebaseWPF.csproj", "{CB77F4E8-6AC6-486B-B92A-72C5AB43442A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{3BE41CCF-F585-4005-A1B4-08207FE3A522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A1327BB5-A748-441D-8E1C-7033D4A84E41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -278,6 +280,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{A53D58CE-C924-4F91-81EF-85C84074A2B5} = {A1327BB5-A748-441D-8E1C-7033D4A84E41}
 		{564F089E-BC9F-453B-996B-D4B5BA069FFF} = {D1D9F516-05B0-4245-AFDE-7A4520D40F59}
 		{8752CDE0-C43F-4038-B003-0FBDEC8EE283} = {3BE41CCF-F585-4005-A1B4-08207FE3A522}
 		{2A2BDBF1-0442-4097-A8DC-4E5D935F6001} = {3BE41CCF-F585-4005-A1B4-08207FE3A522}

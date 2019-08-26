@@ -19,6 +19,11 @@
 
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\Page_SignIn.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

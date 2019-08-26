@@ -1,4 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using FirebaseStandard.Authentication;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
+using HelloFirebaseLibrary.Model;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -7,7 +11,7 @@ namespace HelloFirebaseLibrary.ViewModel
     public class ViewModel_SignUp : VMBase
     {
         #region events
-
+        public event EventHandler<ResponseResult> OnRegistrationStatus;
         #endregion
 
         #region vars
@@ -60,9 +64,43 @@ namespace HelloFirebaseLibrary.ViewModel
         #endregion
 
         #region command methods
-        void Command_SignUp_Click()
+        async void Command_SignUp_Click()
         {
+            this.IsBusy = true;
 
+            try
+            {
+                await this.FirebaseAuth.CreateUserWithEmailAndPasswordAsync(this.Email, this.Password, this.DisplayName, false);
+
+                var VMSignIn = SimpleIoc.Default.GetInstance<ViewModel_SignIn>();
+                VMSignIn.ShowSignInView = true;
+                VMSignIn.ShowSignUpView = false;
+                VMSignIn = null;
+
+                this.OnRegistrationStatus?.Invoke(this, new ResponseResult()
+                {
+                    Result = true
+                });
+            }
+            catch(FirebaseAuthException fae)
+            {
+                this.OnRegistrationStatus?.Invoke(this, new ResponseResult()
+                {
+                    Exception = fae,
+                    Result = false,
+                    Message = fae.Reason == AuthErrorReason.EmailExists ? "Email already exists." : fae.Reason.ToEnumString()
+                }); ;
+            }
+            catch(Exception ex)
+            {
+                this.OnRegistrationStatus?.Invoke(this, new ResponseResult()
+                {
+                    Result = false,
+                    Exception = ex
+                });
+            }
+
+            this.IsBusy = false;
         }
         #endregion
 

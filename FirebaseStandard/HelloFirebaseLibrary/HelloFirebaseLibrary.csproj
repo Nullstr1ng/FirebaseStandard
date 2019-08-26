@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\..\..\NuGetPackage\mvvmlightlibs\5.4.1.1\lib\monoandroid1\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
